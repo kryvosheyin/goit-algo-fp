@@ -93,9 +93,11 @@ def generate_color_gradient(start_color, end_color, steps):
     return gradient
 
 
+color_index = 0
+
+
 def main():
     colors = generate_color_gradient("#003366", "#99CCFF", 6)
-    color_index = 0
 
     root = Node(0)
     root.left = Node(4)
