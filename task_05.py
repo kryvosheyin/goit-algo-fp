@@ -36,7 +36,7 @@ def add_edges(graph, node, pos, x=0, y=0, layer=1):
 def bfs_traversal(root, colors):
     global color_index
     queue = deque([root])
-
+    color_index = 0
     while queue and color_index < len(colors):
         current_node = queue.popleft()
         current_node.color = colors[color_index]
@@ -97,14 +97,23 @@ color_index = 0
 
 
 def main():
-    colors = generate_color_gradient("#003366", "#99CCFF", 6)
+    colors = generate_color_gradient("#003366", "#99CCFF", 15)
 
     root = Node(0)
-    root.left = Node(4)
-    root.left.left = Node(5)
-    root.left.right = Node(10)
-    root.right = Node(1)
-    root.right.left = Node(3)
+    root.left = Node(1)
+    root.left.left = Node(3)
+    root.left.right = Node(4)
+    root.left.left.left = Node(7)
+    root.left.left.right = Node(8)
+    root.left.right.left = Node(9)
+    root.left.right.right = Node(10)
+    root.right = Node(2)
+    root.right.left = Node(5)
+    root.right.right = Node(6)
+    root.right.left.left = Node(11)
+    root.right.left.right = Node(12)
+    root.right.right.left = Node(13)
+    root.right.right.right = Node(14)
 
     draw_tree(root)
     dfs_traversal(root, colors)
